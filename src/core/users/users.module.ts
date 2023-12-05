@@ -3,14 +3,13 @@ import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { UsersRepo } from './db/repositories/users.repo';
 import { UsersTypeormRepository } from './db/repositories/users.typeorm.repository';
-import { DataBaseModule } from 'src/config/database/database.module';
 import { userRepositoryProvider } from './db/providers/users.repository.providers';
 import { HashModule } from 'src/utils/hash/hash.module';
 import { IHashService } from 'src/utils/hash/IHashService';
 import { ArgonHashService } from 'src/utils/hash/hash.service';
 
 @Module({
-  imports: [DataBaseModule, HashModule],
+  imports: [HashModule],
   controllers: [UsersController],
   providers: [
     UsersService,
