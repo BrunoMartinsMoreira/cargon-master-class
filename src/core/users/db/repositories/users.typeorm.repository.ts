@@ -1,9 +1,9 @@
-import { CreateUserDto } from 'src/modules/dto/create-user.dto';
 import { User } from '../entities/user.entity';
 import { UsersRepo } from './users.repo';
 import { Repository } from 'typeorm';
 import { Inject } from '@nestjs/common';
 import { USERS_REPOSITORY } from '../providers/users.repository.providers';
+import { CreateUserDto } from '../../dto/create-user.dto';
 
 export class UsersTypeormRepository implements UsersRepo {
   constructor(

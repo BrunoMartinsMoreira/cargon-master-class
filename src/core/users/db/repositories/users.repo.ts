@@ -1,6 +1,6 @@
-import { CreateUserDto } from 'src/modules/dto/create-user.dto';
+import { CreateUserDto } from '../../dto/create-user.dto';
+import { UpdateUserDto } from '../../dto/update-user.dto';
 import { User } from '../entities/user.entity';
-import { UpdateUserDto } from 'src/modules/dto/update-user.dto';
 
 export abstract class UsersRepo {
   create: (data: CreateUserDto) => Promise<User>;
