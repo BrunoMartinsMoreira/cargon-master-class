@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Inject } from '@nestjs/common';
 import { USERS_REPOSITORY } from '../providers/users.repository.providers';
 import { CreateUserDto } from '../../dto/create-user.dto';
+import { FindOneOptions } from 'typeorm';
 
 export class UsersTypeormRepository implements UsersRepo {
   constructor(
@@ -38,8 +39,14 @@ export class UsersTypeormRepository implements UsersRepo {
   }
 
   async findAll(): Promise<User[]> {
-    return this.repository.find();
+    return this.repository.find({
+      select: ['id', 'email', 'name', 'role'],
+    });
   }
 
-  findOne: (id: number) => Promise<User>;
+  async findOne(condition: FindOneOptions<User>): Promise<User> {
+    return this.repository.findOne({
+      ...condition,
+    });
+  }
 }
