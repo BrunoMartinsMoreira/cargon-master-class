@@ -33,9 +33,7 @@ export class RolesGuard implements CanActivate {
 
     const role: string = payload.role;
 
-    if (requiredRoles.includes(role)) {
-      return true;
-    }
+    if (requiredRoles.includes(role)) return true;
     throw new HttpException(
       {
         message: 'Usuario sem acesso ao recurso',
