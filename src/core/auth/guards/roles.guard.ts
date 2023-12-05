@@ -8,6 +8,7 @@ import {
 import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { UserRoleEnum } from 'src/core/users/db/entities/user.entity';
+import { JwtPayloadInterface } from '../types/jwt.payload';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
@@ -28,7 +29,7 @@ export class RolesGuard implements CanActivate {
 
     if (!token) return false;
 
-    const payload = this.jwtService.decode(token) as any;
+    const payload: JwtPayloadInterface = this.jwtService.decode(token);
 
     const role: string = payload.role;
 
