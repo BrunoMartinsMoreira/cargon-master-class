@@ -12,11 +12,11 @@ export class BadRequestExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
     const status = exception.getStatus();
-    const message = exception.getResponse() as any;
+    const res = exception.getResponse() as any;
 
     response.status(status).json({
       error: true,
-      message: message.message,
+      message: res.message,
       data: null,
     });
   }
