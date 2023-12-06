@@ -14,6 +14,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
   app.useGlobalFilters(new BadRequestExceptionFilter());
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
